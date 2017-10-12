@@ -1,5 +1,5 @@
 //var axioma = "F";
-var select = 4;
+var select = 2;
 var len = 200;
 var exc = 1;
 var sc = 0.5;
