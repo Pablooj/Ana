@@ -1,14 +1,43 @@
-var axioma = "F-F-F-F";
-var frase = axioma;
-var len = 100;
+//var axioma = "F";
+var select = 4;
+var len = 200;
 var exc = 1;
 var sc = 0.5;
+//var regla ={
+//   a: "F",
+//    b: "F[-F]F[+F]F"
+//}
+//var frase = axioma;
 
 
-var regla ={
-  a: "F",
-  b: "F-F+F+FF-F-F+F"
+
+if( select == 1){
+  var axioma = "F-F-F-F";
+  var regla ={
+    a: "F",
+    b: "F-F+F+FF-F-F+F"
+  }
+}else if( select == 2){
+  var axioma = "F";
+  var regla ={
+    a: "F",
+    b: "F[-F]F[+F]F"
+  }
+}else if( select == 3){
+  var axioma = "F";
+  var regla ={
+    a: "F",
+    b: "FF+[+F-F-F]-[-F+F+F]"
+  }
+}else if( select == 4){
+  var axioma = "F++F++F"
+  var regla ={
+    a: "F",
+    b: "F-F++F-F"
+  }
 }
+var frase = axioma;
+
 
 function generar(){
   len *=sc;
@@ -24,7 +53,7 @@ function generar(){
   frase = futura;
   exc++;
   //graphics();
-
+  text(frase,500,500)
 }
 
 //turtle graphics engine
@@ -56,7 +85,7 @@ function graphics(){
 }
 
 function setup(){
-  createCanvas(1800,900);
+  createCanvas(window.innerWidth, window.innerHeight-20);
   background(51);
   fill(255);
   //ang = radians(25);
@@ -65,9 +94,12 @@ function setup(){
   var button = createButton("Generar");
   button.mousePressed(generar);
   angSlider = createSlider(0,90,25);
+  angSlider.position(20,50);
+  button.position(20,80);
 
 }
 
 function draw(){
   graphics();
+
 }
